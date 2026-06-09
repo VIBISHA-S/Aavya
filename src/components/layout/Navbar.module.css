@@ -1,0 +1,143 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: transparent;
+}
+
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.topBar {
+  background-color: var(--color-luxury);
+  color: var(--color-white);
+  text-align: center;
+  padding: 0.5rem;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  height: 80px;
+  transition: height 0.3s ease;
+}
+
+.header.scrolled .navbar {
+  height: 60px;
+}
+
+.navLeft, .navRight {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+}
+
+.navRight {
+  justify-content: flex-end;
+}
+
+.navCenter {
+  flex: 0 1 auto;
+}
+
+.logo {
+  font-family: var(--font-playfair), serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--color-luxury);
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navLink {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-luxury);
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.iconBtn:hover {
+  transform: scale(1.1);
+}
+
+.cartCount {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--color-luxury);
+  color: var(--color-white);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.6rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inlineSearchInput {
+  width: 150px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-luxury);
+  padding: 0.2rem 0;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.8rem;
+  color: var(--color-luxury);
+  outline: none;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { width: 0; opacity: 0; }
+  to { width: 150px; opacity: 1; }
+}

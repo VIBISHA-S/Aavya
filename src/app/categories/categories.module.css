@@ -1,0 +1,338 @@
+.pageWrapper {
+  padding-top: 120px; /* Offset for fixed navbar */
+  min-height: 100vh;
+}
+
+.header {
+  background-color: var(--color-background);
+  padding: 6rem 0;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header h1 {
+  font-family: var(--font-playfair), serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.header p {
+  color: var(--color-text);
+  font-size: 1.1rem;
+}
+
+.layout {
+  display: flex;
+  gap: 4rem;
+  padding-top: 4rem;
+  padding-bottom: 8rem;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.filterGroup {
+  margin-bottom: 3rem;
+}
+
+.filterGroup h3 {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filterGroup ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.filterGroup li {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.filterGroup li:hover {
+  text-decoration: underline;
+}
+
+.filterGroup li.active {
+  font-weight: 600;
+  color: var(--color-luxury);
+}
+
+/* Price Filter */
+.priceFilter {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rangeSlider {
+  width: 100%;
+  accent-color: var(--color-luxury);
+}
+
+.priceLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+/* Color Filter */
+.colorGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.colorSwatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  transition: transform 0.2s;
+}
+
+.colorSwatch:hover {
+  transform: scale(1.1);
+}
+
+/* MAIN CONTENT */
+.mainContent {
+  flex: 1;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sort select {
+  font-family: var(--font-inter), sans-serif;
+  padding: 0.5rem;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+/* PRODUCT GRID */
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.featuredCard {
+  /* Removed span behavior for symmetric grid */
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 450px; /* Default height */
+  overflow: hidden;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+}
+
+.featuredCard .imageContainer {
+  height: 450px; /* Consistent height */
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-inter), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-luxury);
+  transition: transform 0.5s ease;
+}
+
+.productCard:hover .imagePlaceholder {
+  transform: scale(1.05);
+}
+
+/* Hover Actions */
+.quickActions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.productCard:hover .quickActions {
+  transform: translateY(0);
+}
+
+.actionBtn {
+  width: 100%;
+  background-color: var(--color-luxury);
+  color: var(--color-white);
+  padding: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid var(--color-luxury);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.actionBtn:hover {
+  background-color: var(--color-white);
+  color: var(--color-luxury);
+}
+
+.wishlistBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-luxury);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.productCard:hover .wishlistBtn {
+  opacity: 1;
+}
+
+.wishlistBtn:hover {
+  background-color: var(--color-luxury);
+  color: var(--color-white);
+}
+
+/* Product Info */
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.categoryName {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  opacity: 0.7;
+}
+
+.productName {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-luxury);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.productName:hover {
+  text-decoration: underline;
+}
+
+.price {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1rem;
+}
+
+/* PAGINATION */
+.pagination {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pageBtn {
+  font-family: var(--font-inter), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+
+.pageBtn:hover {
+  color: var(--color-luxury);
+  border-bottom-color: var(--color-luxury);
+}
+
+.pageNumber {
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .featuredCard {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+  }
+  
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+}
