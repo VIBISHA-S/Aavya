@@ -165,7 +165,6 @@
   left: 0;
   width: 100%;
   background-color: var(--color-white);
-  border-bottom: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -178,6 +177,7 @@
 .mobileMenu.open {
   max-height: 300px;
   padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .mobileNavLink {
