@@ -7,6 +7,7 @@ import styles from './Navbar.module.css';
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +25,16 @@ export default function Navbar() {
       </div>
       <nav className={styles.navbar}>
         <div className={styles.navLeft}>
-          <Link href="/categories" className={styles.navLink}>New In</Link>
+          <button 
+            className={styles.mobileMenuBtn} 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Menu"
+          >
+            {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+          </button>
+          <div className={styles.desktopLinks}>
+            <Link href="/categories" className={styles.navLink}>New In</Link>
+          </div>
         </div>
 
         <div className={styles.navCenter}>
@@ -49,10 +59,10 @@ export default function Navbar() {
               <SearchIcon />
             </button>
           </div>
-          <Link href="/login" className={styles.iconBtn} aria-label="Account">
+          <Link href="/login" className={`${styles.iconBtn} ${styles.desktopIcon}`} aria-label="Account">
             <UserIcon />
           </Link>
-          <Link href="/wishlist" className={styles.iconBtn} aria-label="Wishlist">
+          <Link href="/wishlist" className={`${styles.iconBtn} ${styles.desktopIcon}`} aria-label="Wishlist">
             <HeartIcon />
           </Link>
           <Link href="/cart" className={styles.iconBtn} aria-label="Cart">
@@ -61,11 +71,34 @@ export default function Navbar() {
           </Link>
         </div>
       </nav>
+
+      {/* Mobile Menu Dropdown */}
+      <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}>
+        <Link href="/categories" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>New In</Link>
+        <Link href="/categories" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Categories</Link>
+        <Link href="/wishlist" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Wishlist</Link>
+        <Link href="/login" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Account</Link>
+      </div>
     </header>
   );
 }
 
 // Simple SVG Icons
+const MenuIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <line x1="3" y1="12" x2="21" y2="12"></line>
+    <line x1="3" y1="6" x2="21" y2="6"></line>
+    <line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+);
+
+const CloseIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+    <line x1="6" y1="6" x2="18" y2="18"></line>
+  </svg>
+);
+
 const SearchIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
     <circle cx="11" cy="11" r="8"></circle>
