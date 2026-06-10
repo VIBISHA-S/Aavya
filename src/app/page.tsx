@@ -7,7 +7,7 @@ export default function Home() {
     <div className={styles.main}>
       {/* 1. HERO BANNER (Glassmorphism) */}
       <section className={styles.heroBanner}>
-        <Image src="/images/hero_campaign.png" alt="New Collection" fill style={{ objectFit: 'cover', objectPosition: 'top center' }} priority />
+        <Image src="/images/hero_campaign_v2.png" alt="New Collection" fill style={{ objectFit: 'cover', objectPosition: 'top center' }} quality={100} priority />
         <div className={styles.glassContainer}>
           <div className={styles.glassOverlay}>
             <h1>The Heritage Edit</h1>
